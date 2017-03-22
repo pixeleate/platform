@@ -56,6 +56,7 @@ var PERMISSION_CREATE_TEAM *Permission
 var PERMISSION_MANAGE_TEAM *Permission
 var PERMISSION_IMPORT_TEAM *Permission
 var PERMISSION_VIEW_TEAM *Permission
+var PERMISSION_LIST_USERS_WITHOUT_TEAM *Permission
 
 // General permission that encompases all system admin functions
 // in the future this could be broken up to allow access to some
@@ -280,6 +281,11 @@ func InitalizePermissions() {
 		"authentication.permissions.view_team.name",
 		"authentication.permissions.view_team.description",
 	}
+	PERMISSION_LIST_USERS_WITHOUT_TEAM = &Permission{
+		"list_users_without_team",
+		"authentication.permisssions.list_users_without_team.name",
+		"authentication.permisssions.list_users_without_team.description",
+	}
 }
 
 func InitalizeRoles() {
@@ -391,6 +397,7 @@ func InitalizeRoles() {
 							PERMISSION_DELETE_POST.Id,
 							PERMISSION_DELETE_OTHERS_POSTS.Id,
 							PERMISSION_CREATE_TEAM.Id,
+							PERMISSION_LIST_USERS_WITHOUT_TEAM.Id,
 						},
 						ROLE_TEAM_USER.Permissions...,
 					),
